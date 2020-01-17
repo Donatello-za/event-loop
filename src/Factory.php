@@ -31,6 +31,8 @@ final class Factory
             return new ExtLibevLoop();
         } elseif (\class_exists('EvLoop', false)) {
             return new ExtEvLoop();
+        } elseif (\class_exists('Osmanov\EventBase', false)) {
+            return new OsmanovEventLoop();
         } elseif (\class_exists('EventBase', false)) {
             return new ExtEventLoop();
         } elseif (\function_exists('event_base_new') && \PHP_MAJOR_VERSION === 5) {
